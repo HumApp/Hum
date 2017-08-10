@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const LiveReloadPlugin = require('webpack-livereload-plugin')
     , devMode = require('.').isDevelopment
@@ -10,7 +10,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
  * usable stack traces. Set to `true` if you want to speed up development.
  */
 
-    , USE_FAST_SOURCE_MAPS = false
+    , USE_FAST_SOURCE_MAPS = false;
 
 module.exports = {
   entry: './app/main.jsx',
@@ -40,4 +40,4 @@ module.exports = {
   plugins: devMode
     ? [new LiveReloadPlugin({appendScriptTag: true})]
     : []
-}
+};
