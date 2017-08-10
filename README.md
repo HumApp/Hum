@@ -1,3 +1,58 @@
+# Hum
+## A social, cross-platform music streaming hub
+
+## Contribution guide
+
+The contribution process is...
+
+1. Make an issue (or multiple issues)
+2. Make a PR that references that issue
+3. Get it code reviewed by someone on the team for major additions/additions with merge conflicts, and address any comments
+4. Merge into master (with merge commit)
+
+### Code style guide
+
+- Use Fullstack's linter
+- Use autoformat on save
+- Use semicolons
+- Two spaces
+- Trailing commas where possible
+- Always use ES6 syntax where possible, e.g. `const` or `let` over `var`
+- Use `require` and `module.exports` in `.js` files
+- Use `import` and `export` in `.jsx` files, unless `require` makes for cleaner code
+- Put import/require statements at top
+- Put the default/module export at bottom
+- Use PascalCase for exported class component files, else use camelCase to name files
+- Define container components and presentational components in separate files
+- Define react components as pure functions (instead of classes) whenever possible
+
+### Commit message guide
+
+-Types:
+--chore
+--docs
+--feat
+--fix
+--refactor
+--style
+--test
+
+- Message in present tense
+
+- Example: `feat: add login button` or `refactor: association between users and playlists`
+
+## Technologies / Languages Used
+
+- Javascript
+- React-Native
+- Firebase/Firebase SDK
+- Swift
+- Spotify API
+- MusicKit SDK
+- OAuth/Passport
+
+
+
 # Hi, I'm 🔥🔥firebones🔥🔥
 
 I'm a happy little skeleton who is totally on [fire(base)](https://firebase.google.com)!
