@@ -28,14 +28,14 @@ The contribution process is...
 
 ### Commit message guide
 
--Types:
---chore
---docs
---feat
---fix
---refactor
---style
---test
+- Types:
+  - chore
+  - docs
+  - feat
+  - fix
+  - refactor
+  - style
+  - test
 
 - Message in present tense
 
