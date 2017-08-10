@@ -12,7 +12,7 @@ The contribution process is...
 
 ### Code style guide
 
-- Use Fullstack's linter
+- Use Fullstack's linter as a base, but change indent and semi rules (below)
 - Use autoformat on save
 - Use semicolons
 - Two spaces
