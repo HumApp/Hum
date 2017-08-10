@@ -1,4 +1,4 @@
-const firebase = require('firebase')
+const firebase = require('firebase');
 
 // -- // -- // -- // Firebase Config // -- // -- // -- //
 const config = {
@@ -8,7 +8,7 @@ const config = {
   projectId: 'firebones-6bc2a',
   storageBucket: 'firebones-6bc2a.appspot.com',
   messagingSenderId: '1030378391678'
-}
+};
 // -- // -- // -- // -- // -- // -- // -- // -- // -- //
 
 // Initialize the app, but make sure to do it only once.
@@ -18,6 +18,6 @@ const config = {
 //   initialize the app again, which causes Firebase to throw.
 //
 //   This is why global state makes a sad panda.)
-firebase.__bonesApp || (firebase.__bonesApp = firebase.initializeApp(config))
+firebase.__bonesApp || (firebase.__bonesApp = firebase.initializeApp(config));
 
-module.exports = firebase
+module.exports = firebase;

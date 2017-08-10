@@ -1,10 +1,10 @@
-'use strict'
-import React from 'react'
-import {Route, IndexRedirect, IndexRoute, Link} from 'react-router'
+'use strict';
+import React from 'react';
+import {Route, IndexRedirect, IndexRoute, Link} from 'react-router';
 
-import Scratchpad from './scratchpad'
-import Whiteboard from './whiteboard'
-import Chat from './chat'
+import Scratchpad from './scratchpad';
+import Whiteboard from './whiteboard';
+import Chat from './chat';
 
 const Index = ({children}) => <div>
   <h1>Demos!</h1>
@@ -24,11 +24,11 @@ const Index = ({children}) => <div>
     The whiteboard demonstrates the <i>journal</i> pattern, a way to use Firebase
     to synchronize the state of Redux stores on all collaborators machines.
   </p>
-</div>
+</div>;
 
 export default <Route path="/demos" component={({children}) => children}>
   <IndexRoute component={Index}/>
   <Route path='scratchpad/:title' component={Scratchpad}/>
   <Route path='whiteboard/:title' component={Whiteboard}/>
   <Route path='chat/:room' component={Chat}/>
-</Route>
+</Route>;

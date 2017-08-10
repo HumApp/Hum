@@ -1,21 +1,21 @@
-'use strict'
-import React from 'react'
-import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
-import {render} from 'react-dom'
+'use strict';
+import React from 'react';
+import {Router, Route, IndexRedirect, browserHistory} from 'react-router';
+import {render} from 'react-dom';
 
-import WhoAmI from './components/WhoAmI'
-import NotFound from './components/NotFound'
+import WhoAmI from './components/WhoAmI';
+import NotFound from './components/NotFound';
 
-import firebase from 'APP/fire'
+import firebase from 'APP/fire';
 
-import Demos from 'APP/demos'
+import Demos from 'APP/demos';
 
 // Get the auth API from Firebase.
-const auth = firebase.auth()
+const auth = firebase.auth();
 
 // Ensure that we have (almost) always have a user ID, by creating
 // an anonymous user if nobody is signed in.
-auth.onAuthStateChanged(user => user || auth.signInAnonymously())
+auth.onAuthStateChanged(user => user || auth.signInAnonymously());
 
 // Further explanation:
 //
@@ -49,7 +49,7 @@ const App = ({children}) =>
     </nav>
     {/* Render our children (whatever the router gives us) */}
     {children}
-  </div>
+  </div>;
 
 render(
   <Router history={browserHistory}>
@@ -60,4 +60,4 @@ render(
     <Route path='*' component={NotFound}/>
   </Router>,
   document.getElementById('main')
-)
+);

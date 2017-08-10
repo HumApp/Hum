@@ -1,26 +1,26 @@
-import React from 'react'
+import React from 'react';
 
-import {createStore, applyMiddleware} from 'redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
-import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {Provider} from 'react-redux';
 
-import createLogger from 'redux-logger'
-import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 
-import Canvas from './Canvas'
-import reducer from './reducers'
+import Canvas from './Canvas';
+import reducer from './reducers';
 
 export default class extends React.Component {
   componentDidMount() {
-    this.mountStoreAtRef(this.props.fireRef)
+    this.mountStoreAtRef(this.props.fireRef);
   }
 
   componentWillReceiveProps(incoming, outgoing) {
-    this.mountStoreAtRef(incoming.fireRef)
+    this.mountStoreAtRef(incoming.fireRef);
   }
 
   componentWillUnmount() {
-    this.unsubscribe && this.unsubscribe()
+    this.unsubscribe && this.unsubscribe();
   }
 
   mountStoreAtRef(ref) {
@@ -28,8 +28,8 @@ export default class extends React.Component {
       // If we already have a store, let's destroy it.
 
       // First, unsubscribe our firebase listener.
-      this.unsubscribe && this.unsubscribe()
-      this.unsubscribe = null
+      this.unsubscribe && this.unsubscribe();
+      this.unsubscribe = null;
 
       // Then, do this annoying thing.
       //
@@ -44,8 +44,8 @@ export default class extends React.Component {
       // with our new store.
       //
       // The lag is imperceptible.
-      this.setState({store: null})
-      return process.nextTick(() => this.mountStoreAtRef(ref))
+      this.setState({store: null});
+      return process.nextTick(() => this.mountStoreAtRef(ref));
     }
 
     const store = createStore(
@@ -72,8 +72,8 @@ export default class extends React.Component {
           store => next => {
             // Whenever an action is pushed into Firebase, dispatch it
             // to the reducer (or the next middleware).
-            const listener = ref.on('child_added', snapshot => next(snapshot.val()))
-            this.unsubscribe = () => ref.off('child_added', listener)
+            const listener = ref.on('child_added', snapshot => next(snapshot.val()));
+            this.unsubscribe = () => ref.off('child_added', listener);
 
             // Our new dispatch function is super simple—it pushes actions to Firebase,
             // unless they have a truthy doNotSync property.
@@ -82,27 +82,27 @@ export default class extends React.Component {
             // It will still call your local listeners, then eventually sync the data
             // with the server.
             return action => {
-              if (action.doNotSync) { return next(action) }
-              return ref.push(action)
-            }
+              if (action.doNotSync) { return next(action); }
+              return ref.push(action);
+            };
           }
         )
       )
-    )
-    this.setState({store})
+    );
+    this.setState({store});
   }
 
   clear = () => {
     // Blow away the journal
-    this.props.fireRef.set(null)
+    this.props.fireRef.set(null);
     // Reload the store
-    this.mountStoreAtRef(this.props.fireRef)
+    this.mountStoreAtRef(this.props.fireRef);
   }
 
   render() {
     const {store} = this.state || {}
-        , {children} = this.props
-    if (!store) return null
+        , {children} = this.props;
+    if (!store) return null;
     // So, this is unexpected.
     //
     // We're used to seeing <Provider> at the top of an App. But there's no rule
@@ -119,6 +119,6 @@ export default class extends React.Component {
         <button onClick={this.clear}>clear</button>
         <Canvas/>
       </div>
-    </Provider>
+    </Provider>;
   }
 }

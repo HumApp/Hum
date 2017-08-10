@@ -1,10 +1,10 @@
-import React from 'react'
-import {Route} from 'react-router'
-import firebase from 'APP/fire'
+import React from 'react';
+import {Route} from 'react-router';
+import firebase from 'APP/fire';
 const db = firebase.database()
-    , auth = firebase.auth()
+    , auth = firebase.auth();
 
-import Chat from './Chat'
+import Chat from './Chat';
 
 // This component is a little piece of glue between React router
 // and our Scratchpad component. It takes in props.params.title, and
@@ -18,4 +18,4 @@ export default ({params: {room}}) =>
         component will listen to, but it could be the root of a more complex
         data structure if we wanted. */}
     <Chat auth={auth} fireRef={db.ref('chatrooms').child(room)}/>
-  </div>
+  </div>;

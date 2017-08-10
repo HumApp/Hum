@@ -1,9 +1,9 @@
-import React from 'react'
-import {Route} from 'react-router'
-import firebase from 'APP/fire'
-const db = firebase.database()
+import React from 'react';
+import {Route} from 'react-router';
+import firebase from 'APP/fire';
+const db = firebase.database();
 
-import Whiteboard from './Whiteboard'
+import Whiteboard from './Whiteboard';
 
 // This component is a little piece of glue between React router
 // and our whiteboard component. It takes in props.params.title, and
@@ -16,4 +16,4 @@ export default ({params: {title}}) =>
         stored in Firebase. Each whiteboard is an array of actions that
         users have dispatched into the whiteboard. */}
     <Whiteboard fireRef={db.ref('whiteboards').child(title)}/>
-  </div>
+  </div>;

@@ -1,11 +1,11 @@
-'use strict'
-import React from 'react'
-import {connect} from 'react-redux'
+'use strict';
+import React from 'react';
+import {connect} from 'react-redux';
 
-import {penDown, moveTo, penUp} from './reducers'
+import {penDown, moveTo, penUp} from './reducers';
 
 // A single mark on the whiteboard.
-export const Stroke = ({stroke}) => <path style={stroke.style} d={stroke.data} />
+export const Stroke = ({stroke}) => <path style={stroke.style} d={stroke.data} />;
 
 export const Canvas = ({
   // Props from state
@@ -43,15 +43,15 @@ export const Canvas = ({
       strokes.map((stroke, idx) => <Stroke key={idx} stroke={stroke}/>)
     }
     {currentStroke && <Stroke stroke={currentStroke}/>}
-  </svg>
+  </svg>;
 
 function closest(Type, event) {
-  let e = event.target
+  let e = event.target;
   while (e.parentElement) {
-    if (e instanceof Type) return e
-    e = e.parentElement
+    if (e instanceof Type) return e;
+    e = e.parentElement;
   }
-  return null
+  return null;
 }
 
 function withLocalCoordinates(actionCreator) {
@@ -59,14 +59,14 @@ function withLocalCoordinates(actionCreator) {
     // Get the bounding rectangle of the svg element in screen coordinates
     const rect = closest(window.SVGSVGElement, evt).getBoundingClientRect()
         , x = evt.pageX - rect.left
-        , y = evt.pageY - rect.top
+        , y = evt.pageY - rect.top;
 
     // Call the action creator with the right coordinates.
-    return actionCreator(x, y)
-  }
+    return actionCreator(x, y);
+  };
 }
 
 export default connect(
   ({strokes, currentStroke}) => ({strokes, currentStroke}),
   {penDown, moveTo, penUp},
-)(Canvas)
+)(Canvas);

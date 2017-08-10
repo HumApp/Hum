@@ -1,9 +1,9 @@
-import React from 'react'
-import {Route} from 'react-router'
-import firebase from 'APP/fire'
-const db = firebase.database()
+import React from 'react';
+import {Route} from 'react-router';
+import firebase from 'APP/fire';
+const db = firebase.database();
 
-import Scratchpad from './Scratchpad'
+import Scratchpad from './Scratchpad';
 
 // This component is a little piece of glue between React router
 // and our Scratchpad component. It takes in props.params.title, and
@@ -17,4 +17,4 @@ export default ({params: {title}}) =>
         component will listen to, but it could be the root of a more complex
         data structure if we wanted. */}
     <Scratchpad fireRef={db.ref('scratchpads').child(title)}/>
-  </div>
+  </div>;

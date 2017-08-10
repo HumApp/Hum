@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import firebase from 'APP/fire'
+import firebase from 'APP/fire';
 
-const google = new firebase.auth.GoogleAuthProvider()
+const google = new firebase.auth.GoogleAuthProvider();
 
 // Firebase has several built in auth providers:
 // const facebook = new firebase.auth.FacebookAuthProvider()
@@ -30,4 +30,4 @@ export default ({ auth }) =>
   // redirect. If you prefer, you can signInWithRedirect, which always
   // redirects.
   <button className='google login'
-          onClick={() => auth.signInWithPopup(google)}>Login with Google</button>
+          onClick={() => auth.signInWithPopup(google)}>Login with Google</button>;
