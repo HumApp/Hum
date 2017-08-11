@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/HumApp/Hum.png?label=ready&title=Ready)](https://waffle.io/HumApp/Hum?utm_source=badge)
 # Hum
 ## A social, cross-platform music streaming hub
 
